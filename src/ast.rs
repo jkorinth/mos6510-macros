@@ -52,7 +52,7 @@ impl Parse for Op {
 impl Parse for OpTuple {
     fn parse(input: ParseStream) -> Result<Self> {
         let content;
-        braced!(content in input);
+        parenthesized!(content in input);
         let opcode: Expr = content.parse()?;
         let _: token::Comma = content.parse()?;
         let addr_mode: Ident = content.parse()?;
